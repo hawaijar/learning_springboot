@@ -1,18 +1,18 @@
 package me.hawaijar.shopping.entities;
 
 import javax.persistence.*;
-import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="products")
 public class Product {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+
 	@NotBlank(message = "A name is required")
 	private String name;
+
 	@DecimalMin(value="0.0", message = "Price must be greater than or equal to zero")
 	private double price;
 
